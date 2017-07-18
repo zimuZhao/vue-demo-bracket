@@ -40,7 +40,6 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     // definePlugin 接收字符串插入到代码当中, 所以你需要的话可以写上 JS 的字符串
-    // 此处，插入适当的环境
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -48,7 +47,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     // 压缩JS
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: false,
+        // 打包过滤掉console
+        drop_debugger: true,
+        drop_console: true
       },
       sourceMap: true
     }),
