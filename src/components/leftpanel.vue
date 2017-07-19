@@ -329,10 +329,6 @@
     margin-left: 50px;
   }
 
-  .leftpanel-collapsed .infosummary {
-    display: none;
-  }
-
   .leftpanel-collapsed .sticky-leftpanel {
     overflow-y: visible;
   }
@@ -359,13 +355,13 @@
       <!--<h5 class="sidebartitle">Navigation</h5>-->
       <ul class="nav nav-pills nav-stacked nav-bracket">
         <li>
-          <a href="/home" :active="active">
+          <a href="/home" active="active">
             <i class="fa fa-home"></i>
             <span>Home</span>
           </a>
         </li>
         <li>
-          <a href="/list" :active="active">
+          <a href="/list" active="active">
             <i class="fa fa-list"></i>
             <span>List</span>
           </a>
@@ -430,15 +426,15 @@
       let _vm = this;
 
       // Toggle Left Menu
-      jQuery('body').on('click', '.leftpanel .nav-parent > a', function () {
-        var parent = jQuery(this).parent();
+      $('body').on('click', '.leftpanel .nav-parent > a', function () {
+        var parent = $(this).parent();
         var sub = parent.find('> ul');
         // Dropdown works only when leftpanel is not collapsed
-        if (!jQuery('body').hasClass('leftpanel-collapsed')) {
+        if (!$('body').hasClass('leftpanel-collapsed')) {
           if (sub.is(':visible')) {
             sub.slideUp(200, function () {
               parent.removeClass('nav-active');
-              jQuery('.mainpanel').css({height: ''});
+              $('.mainpanel').css({height: ''});
               _vm.adjustmainpanelheight();
             });
           } else {
@@ -453,15 +449,15 @@
       });
 
       // Add class everytime a mouse pointer hover over it
-      jQuery('.nav-bracket > li').hover(function () {
-        jQuery(this).addClass('nav-hover');
+      $('.nav-bracket > li').hover(function () {
+        $(this).addClass('nav-hover');
       }, function () {
-        jQuery(this).removeClass('nav-hover');
+        $(this).removeClass('nav-hover');
       });
 
       // Check if leftpanel is collapsed
-      if (jQuery('body').hasClass('leftpanel-collapsed'))
-        jQuery('.nav-bracket .children').css({display: ''});
+      if ($('body').hasClass('leftpanel-collapsed'))
+        $('.nav-bracket .children').css({display: ''});
     },
     methods: {
       // init data
@@ -477,8 +473,8 @@
       },
 
       closeVisibleSubMenu() {
-        jQuery('.leftpanel .nav-parent').each(function () {
-          var t = jQuery(this);
+        $('.leftpanel .nav-parent').each(function () {
+          var t = $(this);
           if (t.hasClass('nav-active')) {
             t.find('> ul').slideUp(200, function () {
               t.removeClass('nav-active');
@@ -487,9 +483,9 @@
         });
       },
       adjustmainpanelheight() {
-        var docHeight = jQuery(document).height();
-        if (docHeight > jQuery('.mainpanel').height())
-          jQuery('.mainpanel').height(docHeight);
+        var docHeight = $(document).height();
+        if (docHeight > $('.mainpanel').height())
+          $('.mainpanel').height(docHeight);
       }
 
 

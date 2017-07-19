@@ -1,11 +1,6 @@
 /********** 1. FILE IMPORTS **********/
 @import url('bootstrap-override.css');
-@import url('./../../vendors/jquery-ui-1.10.3.css');
 @import url('font-awesome.min.css');
-@import url('animate.min.css');
-@import url('animate.delay.css');
-@import url('toggles.css');
-@import url('./../../vendors/select2.css');
 
 /********** 2. RESET STYLES **********/
 
